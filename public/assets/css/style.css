@@ -1,0 +1,344 @@
+/* ================================================== All Style => */
+
+@font-face {
+    font-family: 'iranSans';
+    src: url(../fonts/IRANSans.ttf) format('TrueType');
+}
+
+@font-face {
+    font-family: 'iranSansBold';
+    src: url(../fonts/IRAN\ Sans\ Bold.ttf) format('TrueType');
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    font-family: 'iranSans';
+}
+
+body {
+    background: #eee;
+    overflow-x: hidden;
+}
+
+table,
+thead,
+tbody {
+    display: block;
+}
+
+tr {
+    display: flex;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: unset;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'iranSansBold';
+}
+
+i {
+    transition: 0.2s;
+}
+
+:root {
+    --table-header: #293462;
+}
+
+/* ================================================== sm Size => */
+
+nav {
+    color: #fff;
+    transition: 0.3s;
+    width: 60px;
+    background: royalblue;
+    height: 100%;
+    position: fixed;
+    right: -60px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+    z-index: 1;
+}
+
+nav article {
+    position: relative;
+}
+
+button.menu {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 40px 0 0 40px;
+    font-size: 13px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: royalblue;
+    outline: none;
+    color: #fff;
+    position: absolute;
+    right: 100%;
+    top: 5px;
+}
+
+nav>figure {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+nav img {
+    background: #fff;
+    border-radius: 50%;
+    border: none;
+    width: 45px;
+    height: 45px;
+}
+
+nav>ul {
+    list-style: none;
+    text-align: right;
+    flex: 2;
+    padding-left: 0;
+}
+
+nav li {
+    white-space: nowrap;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+    margin: 8px;
+    border-radius: 7px;
+    transition: 0.2s;
+}
+
+nav li:hover {
+    box-shadow: 0 0 5px 0 #111;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+nav a>:first-child {
+    font-size: 1.2em;
+    padding: 0 12px;
+    margin-left: 12px;
+    /* ediiiiiiiiiiiiit */
+}
+
+nav a>:last-child {
+    flex: 2;
+}
+
+nav a:hover {
+    color: yellow;
+}
+
+nav .btn-resizer {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px 0;
+    font-size: 1em;
+    color: #fff;
+    margin: 8px;
+    border-radius: 7px;
+    transition: 0.2s;
+}
+
+nav .btn-resizer:hover {
+    box-shadow: 0 0 5px 0 #111;
+}
+
+nav.add-width {
+    width: 220px;
+}
+
+.nav-active {
+    right: 0;
+}
+
+.main-active {
+    right: 60px;
+}
+
+.rotate-on {
+    transform: rotateZ(180deg);
+}
+
+
+
+
+main {
+    transition: 0.3s;
+    width: 100%;
+    height: 100%;
+    background: #eee;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    padding-top: 15px;
+}
+
+.users-section,
+.gallery-section,
+.posts-section,
+.todo-section {
+    font-size: 1em;
+    margin-bottom: 60px;
+}
+
+.users-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.users-search>input {
+    border-radius: 10px;
+    padding: 6px;
+    border: none;
+    box-shadow: 0 0 3px 0 inset #aaa;
+}
+
+.users-search button {
+    padding: 5px;
+    border: none;
+    background: green;
+    color: #fff;
+    border-radius: 8px;
+    min-width: 50px;
+}
+
+.users-table>table {
+    overflow: hidden;
+    border-radius: 15px;
+    font-size: 0.95em;
+}
+
+.users-table thead {
+    background: var(--table-header);
+    color: #fff;
+}
+
+.users-table tbody {
+    background: #fff;
+}
+
+.users-table>table tr {
+    text-align: center;
+}
+
+.users-table :is(th, td) {
+    padding: 8px 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.users-table th:first-of-type,
+.users-table td:first-of-type {
+    flex-basis: 50px;
+    max-width: 50px;
+}
+
+.users-table th:not(.users-table th:first-of-type),
+.users-table td:not(.users-table td:first-of-type) {
+    flex: 1;
+}
+
+.operation-icon {
+    font-size: 1em;
+}
+
+.operation-icon>a {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.operation-icon>i:last-of-type {
+    margin-left: 0;
+}
+
+
+/* add or edit user component */
+
+.form-section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 0.95em;
+}
+
+form {
+    background: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 15px;
+    padding: 10px;
+    max-width: 600px;
+    margin: auto;
+}
+
+form>article {
+    flex-basis: 100%;
+    padding: 10px;
+}
+
+form>article:last-of-type {
+    text-align: left;
+}
+
+form label {
+    margin-bottom: 8px;
+    user-select: none;
+}
+
+.form-section input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 3px 0 inset #999;
+}
+
+form button {
+    margin: 15px auto 0;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    width: 100px;
+    color: #fff;
+    font-size: 0.95em;
+}
+
+form button:last-of-type{
+    margin-right: 10px;
+}
+
+.back-btn {
+    background: orangered;
+}
+
+.add-edit-btn {
+    background: var(--table-header);
+}
