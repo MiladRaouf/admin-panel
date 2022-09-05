@@ -185,6 +185,10 @@ nav.add-width {
     transform: rotateZ(180deg);
 }
 
+.nav-item-active {
+    color: yellow;
+}
+
 
 
 
@@ -274,10 +278,19 @@ main {
 .operation-icon>a {
     margin-left: 10px;
     cursor: pointer;
+    color: #888;
+    transition: 0.2s;
 }
 
 .operation-icon>i:last-of-type {
     margin-left: 0;
+    cursor: pointer;
+    color: #888;
+    transition: 0.2s;
+}
+
+:is(.operation-icon>i:last-of-type, .operation-icon>a):hover {
+    color: var(--table-header);
 }
 
 
@@ -331,7 +344,7 @@ form button {
     font-size: 0.95em;
 }
 
-form button:last-of-type{
+form button:last-of-type {
     margin-right: 10px;
 }
 

@@ -18,8 +18,8 @@ const Content = () => {
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/todo" element={<Todo />} />
                 <Route path="/user/add" element={<AddOrEditUser />} />
-                <Route path="/user/edit" element={<AddOrEditUser />} >
-                    <Route path=":id" />
+                <Route path="/user/edit/:userId" element={<AddOrEditUser />} >
+                    {/* <Route path=":id" /> */}
                 </Route>
                 <Route path="*" element={<Users />} />
             </Routes>

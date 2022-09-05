@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { MenuContext } from "./MenuContext";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
     const { showMenu, setShowMenu } = useContext(MenuContext);
@@ -29,36 +29,36 @@ const Sidebar = () => {
 
             <ul>
                 <li>
-                    <Link to={'/'}>
+                    <NavLink to={'/'} className={({ isActive }) => isActive ? 'nav-item-active' : ''}>
                         <i className="fa fa-user" aria-hidden="true"></i>
                         <span>
                             کاربران
                         </span>
-                    </Link>
+                    </NavLink>
                 </li>
                 <li>
-                    <Link to={'/gallery'}>
+                    <NavLink to={'/gallery'} className={({ isActive }) => isActive ? 'nav-item-active' : ''}>
                         <i className="fa fa-user" aria-hidden="true"></i>
                         <span>
                             گالری
                         </span>
-                    </Link>
+                    </NavLink>
                 </li>
                 <li>
-                    <Link to={'/posts'}>
+                    <NavLink to={'/posts'} className={({ isActive }) => isActive ? 'nav-item-active' : ''}>
                         <i className="fa fa-align-center" aria-hidden="true"></i>
                         <span>
                             پست ها
                         </span>
-                    </Link>
+                    </NavLink>
                 </li>
                 <li>
-                    <Link to={'/todo'}>
+                    <NavLink to={'/todo'} className={({ isActive }) => isActive ? 'nav-item-active' : ''}>
                         <i className="fa fa-align-center" aria-hidden="true"></i>
                         <span>
                             کار ها
                         </span>
-                    </Link>
+                    </NavLink>
                 </li>
             </ul>
 
