@@ -6,10 +6,13 @@ import axios from 'axios';
 const Users = () => {
 
     const [users, setUsers] = useState([]);
+    const [mainUsers, setMainUsers] = useState([]);
 
     useEffect(() => {
         axios.get('https://jsonplaceholder.typicode.com/users').then(res => {
             setUsers(res.data);
+            setMainUsers(res.data);
+
         }).catch(error => console.log(error));
     }, []);
 
@@ -47,26 +50,26 @@ const Users = () => {
                         مدیریت کاربران
                     </h4>
 
-                    {users.length ? (
-                        <Fragment>
-                            <article className="users-search">
-                                <input type="text"></input>
-                                <Link to={'/user/add'}>
-                                    <button>+</button>
-                                </Link>
-                            </article>
+                    <article className="users-search">
+                        <input type="text" onChange={(e) => { setUsers(mainUsers.filter(u => u.name.includes(e.target.value))) }}></input>
+                        <Link to={'/user/add'}>
+                            <button>+</button>
+                        </Link>
+                    </article>
 
-                            <article className="users-table">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>نام</th>
-                                            <th>نام کاربری</th>
-                                            <th>ایمیل</th>
-                                            <th>عملیات</th>
-                                        </tr>
-                                    </thead>
+                    <article className="users-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>نام</th>
+                                    <th>نام کاربری</th>
+                                    <th>ایمیل</th>
+                                    <th>عملیات</th>
+                                </tr>
+                            </thead>
+                            {users.length ? (
+                                <Fragment>
                                     <tbody>
                                         {users.map(user => (
                                             <tr key={user.id}>
@@ -84,12 +87,12 @@ const Users = () => {
                                             </tr>
                                         ))}
                                     </tbody>
-                                </table>
-                            </article>
-                        </Fragment>
-                    ) :
-                        ''
-                    }
+                                </Fragment>
+                            ) :
+                                ''
+                            }
+                        </table>
+                    </article>
                 </section>
             </article>
         </section>
