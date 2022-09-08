@@ -89,7 +89,13 @@ const Users = () => {
                                     </tbody>
                                 </Fragment>
                             ) :
-                                ''
+                            <article className="loader-parent">
+                                <div class="lds-facebook">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </article>
                             }
                         </table>
                     </article>

@@ -1,7 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import { JpAxios } from "../configs/JpAxios"
+import { setAddUserService, setEditUserService } from "../services/UserService";
 
 const AddOrEditUser = () => {
     const { userId } = useParams();
@@ -20,44 +21,34 @@ const AddOrEditUser = () => {
     });
 
     useEffect(() => {
-        axios.get(`https://jsonplaceholder.typicode.com/users/${userId}`).then(res => {
-            setUserDetails({
-                "name": res.data.name,
-                "username": res.data.username,
-                "email": res.data.email,
-                "address": {
-                    "street": "",
-                    "suite": "",
-                    "city": "",
-                    "zipcode": ""
-                }
+        if (userId) {
+            JpAxios.get(`/users/${userId}`).then(res => {
+                setUserDetails({
+                    "name": res.data.name,
+                    "username": res.data.username,
+                    "email": res.data.email,
+                    "address": {
+                        "street": "",
+                        "suite": "",
+                        "city": "",
+                        "zipcode": ""
+                    }
+                });
             });
-        });
+        }
     }, []);
+
 
     const handleAddUser = (e) => {
         e.preventDefault();
 
-        axios.post('https://jsonplaceholder.typicode.com/users', userDetails).then(() => {
-            Swal.fire(
-                userDetails.name,
-                'تبریک میگم به لیست کاربران اضافه شدی',
-                'success'
-            )
-        })
+        setAddUserService(userDetails);
     };
 
     const handleEditUser = (e) => {
         e.preventDefault();
 
-        axios.put(`https://jsonplaceholder.typicode.com/users/${userId}`, userDetails).then((res) => {
-            Swal.fire(
-                userDetails.name,
-                'تغییرات مورد نظرت انجام شد',
-                'success'
-            )
-        })
-
+        setEditUserService(userId, userDetails);
     }
 
     return (
