@@ -69,34 +69,32 @@ const Users = () => {
                                 </tr>
                             </thead>
                             {users.length ? (
-                                <Fragment>
-                                    <tbody>
-                                        {users.map(user => (
-                                            <tr key={user.id}>
-                                                <td>{user.id}</td>
-                                                <td>{user.name}</td>
-                                                <td>{user.username}</td>
-                                                <td>{user.email}</td>
-                                                <td className="operation-icon">
-                                                    <Link to={`/user/edit/${user.id}`}>
-                                                        <i className="fa fa-edit"></i>
-                                                    </Link>
+                                <tbody>
+                                    {users.map(user => (
+                                        <tr key={user.id}>
+                                            <td>{user.id}</td>
+                                            <td>{user.name}</td>
+                                            <td>{user.username}</td>
+                                            <td>{user.email}</td>
+                                            <td className="operation-icon">
+                                                <Link to={`/user/edit/${user.id}`}>
+                                                    <i className="fa fa-edit"></i>
+                                                </Link>
 
-                                                    <i className="fa fa-trash" onClick={() => { handleDeletAlert(user.id) }}></i>
-                                                </td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </Fragment>
-                            ) :
-                            <article className="loader-parent">
-                                <div class="lds-facebook">
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                </div>
-                            </article>
-                            }
+                                                <i className="fa fa-trash" onClick={() => { handleDeletAlert(user.id) }}></i>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            ) : (
+                                <tbody className="loader-parent">
+                                    <div className="lds-facebook">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                </tbody>
+                            )}
                         </table>
                     </article>
                 </section>
