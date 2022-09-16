@@ -69,7 +69,7 @@ const Posts = () => {
 
                     <article className="users-search">
                         <input type="number" value={userId} onChange={(e) => { setUserId(e.target.value) }}></input>
-                        <Link to={'/user/add'}>
+                        <Link to={'/post/add'}>
                             <button>+</button>
                         </Link>
                     </article>
@@ -87,18 +87,18 @@ const Posts = () => {
                             </thead>
                             {posts.length ? (
                                 <tbody>
-                                    {posts.map(user => (
-                                        <tr key={user.id}>
-                                            <td>{user.id}</td>
-                                            <td onClick={() => setUserId(user.userId)}>{user.userId}</td>
-                                            <td>{user.title}</td>
-                                            <td>{user.body}</td>
+                                    {posts.map(post => (
+                                        <tr key={post.id}>
+                                            <td>{post.id}</td>
+                                            <td onClick={() => setUserId(post.userId)}>{post.userId}</td>
+                                            <td>{post.title}</td>
+                                            <td>{post.body}</td>
                                             <td className="operation-icon">
-                                                <Link to={`/user/edit/${user.id}`}>
+                                                <Link to={`/post/edit/${post.id}`}>
                                                     <i className="fa fa-edit"></i>
                                                 </Link>
 
-                                                <i className="fa fa-trash" onClick={() => { handleDeletAlert(user.id) }}></i>
+                                                <i className="fa fa-trash" onClick={() => { handleDeletAlert(post.id) }}></i>
                                             </td>
                                         </tr>
                                     ))}

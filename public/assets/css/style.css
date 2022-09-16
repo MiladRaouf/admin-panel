@@ -326,7 +326,7 @@ form label {
     user-select: none;
 }
 
-.form-section input {
+.form-section :is(input, select) {
     width: 100%;
     padding: 8px;
     border-radius: 10px;

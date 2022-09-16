@@ -5,7 +5,8 @@ import Users from "./users/Users";
 import Gallery from "./gallery/Gallery";
 import Posts from "./posts/Posts";
 import Todo from "./todo/Todo";
-import AddOrEditUser from "./addOrEditUser/AddOrEditUser";
+import AddOrEditUser from "./users/addOrEditUser/AddOrEditUser";
+import AddOrEditPost from "./posts/addOrEditPost/AddOrEditPost";
 
 const Content = () => {
     const { showMenu, setShowMenu } = useContext(MenuContext);
@@ -14,13 +15,18 @@ const Content = () => {
         <main className={showMenu ? 'main-active' : ''}>
             <Routes>
                 <Route path="/users" element={<Users />} />
-                <Route path="/posts" element={<Posts />} />
-                <Route path="/gallery" element={<Gallery />} />
-                <Route path="/todo" element={<Todo />} />
                 <Route path="/user/add" element={<AddOrEditUser />} />
                 <Route path="/user/edit/:userId" element={<AddOrEditUser />} >
                     {/* <Route path=":id" /> */}
                 </Route>
+
+                <Route path="/posts" element={<Posts />} />
+                <Route path="/post/add" element={<AddOrEditPost />} />
+                <Route path="/post/edit/:postId" element={<AddOrEditPost />} />
+
+                <Route path="/gallery" element={<Gallery />} />
+                <Route path="/todo" element={<Todo />} />
+
                 <Route path="*" element={<Users />} />
             </Routes>
         </main>

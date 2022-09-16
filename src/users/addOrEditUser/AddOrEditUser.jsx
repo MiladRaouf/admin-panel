@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import { JpAxios } from "../configs/JpAxios"
-import { setAddUserService, setEditUserService } from "../services/UserService";
+import { JpAxios } from "../../configs/JpAxios"
+import { setAddUserService, setEditUserService } from "../../services/UserService";
 
 const AddOrEditUser = () => {
     const { userId } = useParams();
@@ -87,7 +87,7 @@ const AddOrEditUser = () => {
                                     {userId ? 'ویرایش' : 'افزودن'}
                                 </button>
 
-                                <button className="back-btn" onClick={() => { navigate('/') }}>
+                                <button type="button" className="back-btn" onClick={() => { navigate(-1) }}>
                                     بازگشت
                                 </button>
                             </article>
